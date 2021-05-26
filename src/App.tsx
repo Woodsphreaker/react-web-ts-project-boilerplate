@@ -1,13 +1,10 @@
-import React from 'react';
-import ServiceLogList from './components/ServiceLogList'
-
-function App() {
+import React from 'react'
+const App: React.FC = () => {
   return (
     <>
       <h1>running</h1>
-      <ServiceLogList />
     </>
   )
 }
 
-export default App;
+export default App
