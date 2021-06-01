@@ -7,28 +7,27 @@ import React, {
 } from 'react'
 import { darkTheme, lightTheme } from '../../themes/index'
 
-interface ThemeProps {
+interface IThemeProps {
   children?: ReactNode
 }
 
-interface ThemeOptions {
+interface IThemeOptions {
   themeName: 'dark' | 'light'
 }
 
-interface ThemeProviderProps {
+interface IThemeProviderProps {
   theme: {
     backgroundColor: string
   }
-  choseTheme: ({ themeName }: ThemeOptions) => void
+  choseTheme: ({ themeName }: IThemeOptions) => void
 }
 
-const ThemeContext = createContext({} as ThemeProviderProps)
+const ThemeContext = createContext({} as IThemeProviderProps)
 
-const ThemeProvider = ({ children }: ThemeProps): ReactElement => {
-  console.log(children)
+const ThemeProvider = ({ children }: IThemeProps): ReactElement => {
   const [theme, setTheme] = useState(darkTheme)
 
-  const choseTheme = ({ themeName }: ThemeOptions): void => {
+  const choseTheme = ({ themeName }: IThemeOptions): void => {
     const themes = {
       dark: darkTheme,
       light: lightTheme,
@@ -47,6 +46,6 @@ const ThemeProvider = ({ children }: ThemeProps): ReactElement => {
   )
 }
 
-export const useTheme = (): ThemeProviderProps => useContext(ThemeContext)
+export const useTheme = (): IThemeProviderProps => useContext(ThemeContext)
 
 export default ThemeProvider

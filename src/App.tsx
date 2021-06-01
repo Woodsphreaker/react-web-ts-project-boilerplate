@@ -1,15 +1,20 @@
 import React from 'react'
 import RootProvider from './context/index'
 import ThemeProvider from './themes/ThemeProvider'
-import TestComponent from './components/TestComponent'
+import Routes from './routes/index'
+
+import history from './services/history'
+import { Router } from 'react-router-dom'
+
 const App: React.FC = () => {
   return (
     <>
       <RootProvider>
         <ThemeProvider>
-          <TestComponent>
-            <h1>running</h1>
-          </TestComponent>
+          <Router history={history}>
+            {console.log({ history, root: 'sim' })}
+            <Routes />
+          </Router>
         </ThemeProvider>
       </RootProvider>
     </>

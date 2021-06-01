@@ -1,11 +1,12 @@
 import React, { ComponentType, createContext, ReactNode } from 'react'
 import ThemeProvider from '../context/ThemeContext'
+import AuthenticationProvider from '../context/AuthenticationContext'
 
 interface RootProviderProps {
   children?: ReactNode
 }
 
-const providers = [ThemeProvider]
+const providers = [AuthenticationProvider, ThemeProvider]
 
 const RootContext = createContext({})
 
