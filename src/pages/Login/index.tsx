@@ -1,4 +1,5 @@
 import React from 'react'
+import { showToast } from '~/utils'
 
 import { Text } from './styles'
 
@@ -18,6 +19,12 @@ const Login: React.FC = () => {
       </button>
       <button onClick={() => choseTheme({ themeName: 'light' })} type="button">
         Light
+      </button>
+      <button
+        onClick={() => showToast({ message: 'hello toast', type: 'info' })}
+        type="button"
+      >
+        Show Toast
       </button>
     </div>
   )

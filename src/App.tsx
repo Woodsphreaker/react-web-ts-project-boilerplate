@@ -1,5 +1,6 @@
 import React from 'react'
 import RootProvider from './context/index'
+import { ToastContainer } from 'react-toastify'
 import ThemeProvider from './themes/ThemeProvider'
 import Routes from './routes/index'
 import GlobalStyles from './styles/GlobalStyles'
@@ -13,6 +14,17 @@ const App: React.FC = () => {
       <RootProvider>
         <ThemeProvider>
           <GlobalStyles />
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
           <Router history={history}>
             <Routes />
           </Router>
