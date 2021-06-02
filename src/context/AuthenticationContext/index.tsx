@@ -34,7 +34,7 @@ const AuthenticationContext = createContext({} as IAuthenticationProvider)
 const AuthenticationProvider = ({
   children
 }: IAuthenticationProps): ReactElement => {
-  const [isAuthenticated, setAuthentication] = useState(true)
+  const [isAuthenticated, setAuthentication] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {

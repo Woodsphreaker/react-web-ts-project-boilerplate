@@ -5,7 +5,7 @@ import React, {
   useContext,
   useState
 } from 'react'
-import { darkTheme, lightTheme } from '../../themes/index'
+import { dark, light } from '../../themes/index'
 
 interface IThemeProps {
   children?: ReactNode
@@ -17,7 +17,7 @@ interface IThemeOptions {
 
 interface IThemeProviderProps {
   theme: {
-    backgroundColor: string
+    colors: {}
   }
   choseTheme: ({ themeName }: IThemeOptions) => void
 }
@@ -25,13 +25,13 @@ interface IThemeProviderProps {
 const ThemeContext = createContext({} as IThemeProviderProps)
 
 const ThemeProvider = ({ children }: IThemeProps): ReactElement => {
-  const [theme, setTheme] = useState(darkTheme)
+  const [theme, setTheme] = useState(dark)
 
   const choseTheme = ({ themeName }: IThemeOptions): void => {
     const themes = {
-      dark: darkTheme,
-      light: lightTheme,
-      default: darkTheme
+      dark,
+      light,
+      default: dark
     }
 
     const selectedTheme = themes[themeName] || themes.default

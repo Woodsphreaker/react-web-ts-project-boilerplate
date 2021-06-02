@@ -1,7 +1,17 @@
-export const darkTheme = {
-  backgroundColor: '#171c24'
+export interface IThemeProps {
+  theme: typeof dark
 }
 
-export const lightTheme = {
-  backgroundColor: '#fff'
+export const dark = {
+  colors: {
+    bg: '#171c24',
+    text: '#fff'
+  }
+}
+
+export const light = {
+  colors: {
+    bg: '#fff',
+    text: '#171c24'
+  }
 }
