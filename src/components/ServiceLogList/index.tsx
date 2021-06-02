@@ -1,41 +1,38 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react'
 import api from '../../services/api'
 import socketClient from 'socket.io-client'
-
-
 // import { Container } from './styles';
 
 const ServiceLogList: React.FC = () => {
   const [serviceLogs, setServiceLog] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  
 
   useEffect(() => {
     const getServiceLog = async () => {
       try {
         setIsLoading(true)
-        const {data: {serviceLog}} = await api.post('/serviceLogs')
+        const {
+          data: { serviceLog }
+        } = await api.post('/serviceLogs')
         setServiceLog(serviceLog)
         setIsLoading(false)
         socketListener()
-      }catch(error) {
+      } catch (error) {
         console.log(error)
         setIsLoading(false)
       }
     }
     getServiceLog()
-    
   }, [])
 
   const socketListener = () => {
     try {
       const socket = socketClient('http://localhost:3333/')
       socket.on('newLog', (log: []) => {
-        setServiceLog((prevState) => [...prevState, ...log])
+        setServiceLog(prevState => [...prevState, ...log])
       })
       console.log(socket)
-    }
-    catch(error) {
+    } catch (error) {
       console.log(error)
     }
   }
@@ -46,10 +43,13 @@ const ServiceLogList: React.FC = () => {
 
   return (
     <>
-      {serviceLogs.map(service => <div><p>{JSON.stringify(service)}</p></div>) }
+      {serviceLogs.map(service => (
+        <div>
+          <p>{JSON.stringify(service)}</p>
+        </div>
+      ))}
     </>
   )
-
 }
 
-export default ServiceLogList;
+export default ServiceLogList

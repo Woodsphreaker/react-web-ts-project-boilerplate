@@ -1,6 +1,6 @@
 import React, { ComponentType, createContext, ReactNode } from 'react'
-import ThemeProvider from '../context/ThemeContext'
-import AuthenticationProvider from '../context/AuthenticationContext'
+import ThemeProvider from '~/context/ThemeContext'
+import AuthenticationProvider from '~/context/AuthenticationContext'
 
 interface RootProviderProps {
   children?: ReactNode

@@ -7,7 +7,7 @@ import React, {
   useEffect
 } from 'react'
 
-import history from '../../services/history'
+import history from '~/services/history'
 
 interface IAuthenticationProps {
   children?: ReactNode

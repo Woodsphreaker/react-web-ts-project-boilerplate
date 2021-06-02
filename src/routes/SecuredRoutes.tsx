@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, RouteProps, Redirect } from 'react-router-dom'
 
-import { useAuthentication } from '../context/AuthenticationContext'
+import { useAuthentication } from '~/context/AuthenticationContext'
 
 interface IPrivateRouteProps {
   component: React.ComponentType<RouteProps>

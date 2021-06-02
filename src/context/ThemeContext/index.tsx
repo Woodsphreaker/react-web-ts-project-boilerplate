@@ -5,7 +5,7 @@ import React, {
   useContext,
   useState
 } from 'react'
-import { dark, light } from '../../themes/index'
+import { dark, light } from '~/themes'
 
 interface IThemeProps {
   children?: ReactNode
